@@ -2083,7 +2083,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     path.setFillRule(Qt::WindingFill);
 
     if(limit_speed > 0) {
-      board_width = limit_speed < 100 ? 210 : 230;
+      board_width = limit_speed < 100 ? 230 : 230;
       board_height = max_speed_height + board_width;
 
       path.addRoundedRect(QRectF(x_start, y_start, board_width, board_height-board_width/2), corner_radius, corner_radius);
