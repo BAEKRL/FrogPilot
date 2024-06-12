@@ -2067,15 +2067,15 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
   }
 
   const int x_start = 30;
-  const int y_start = 30;
+  const int y_start = 200;
 
-  int board_width = 210;
-  int board_height = 384;
+  int board_width = 230;
+  int board_height = 230;
 
   const int corner_radius = 32;
-  int max_speed_height = 240;
+  int max_speed_height = 0;
 
-  QColor bgColor = QColor(0, 0, 0, 166);
+  QColor bgColor = QColor(0, 0, 0, 128);
 
   {
     // draw board
@@ -2083,14 +2083,14 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     path.setFillRule(Qt::WindingFill);
 
     if(limit_speed > 0) {
-      board_width = limit_speed < 100 ? 230 : 230;
+      //board_width = limit_speed < 100 ? 230 : 230;
       board_height = max_speed_height + board_width;
 
       path.addRoundedRect(QRectF(x_start, y_start, board_width, board_height-board_width/2), corner_radius, corner_radius);
       path.addRoundedRect(QRectF(x_start, y_start+corner_radius, board_width, board_height-corner_radius), board_width/2, board_width/2);
     }
     else if(roadLimitSpeed > 0 && roadLimitSpeed < 200) {
-      board_height = 500;
+      //board_height = 500;
       path.addRoundedRect(QRectF(x_start, y_start, board_width, board_height), corner_radius, corner_radius);
     }
     else {
