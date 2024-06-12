@@ -2034,7 +2034,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
   int camLimitSpeedLeftDist = navi_data.getCamLimitSpeedLeftDist();
   int sectionLimitSpeed = navi_data.getSectionLimitSpeed();
   int sectionLeftDist = navi_data.getSectionLeftDist();
-  int isNda2 = navi_data.getIsNda2();
+  //int isNda2 = navi_data.getIsNda2();
 
   int limit_speed = 0;
   int left_dist = 0;
