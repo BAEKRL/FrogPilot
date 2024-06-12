@@ -2069,8 +2069,8 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     p.setOpacity(1.f);
     QString message = "NDA";
     QFont font = p.font();
-    font.setPointSize(12); // 폰트 크기를 설정합니다. 필요에 따라 조정하세요.
-    p.setFont((InterFont(12, QFont::Bold)));
+    font.setPointSize(75); // 폰트 크기를 설정합니다. 필요에 따라 조정하세요.
+    p.setFont((InterFont(75, QFont::Bold)));
 
     int x = (width() + (UI_BORDER_SIZE * 2)) / 2 - 60; // 텍스트의 x 좌표를 계산합니다.
     int y = 40 - UI_BORDER_SIZE; // 텍스트의 y 좌표를 계산합니다.
@@ -2084,10 +2084,10 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     p.drawText(x, y, message);
   }
 
-  const int x_start = 30;
-  const int y_start = 200;
+  const int x_start = 35;
+  const int y_start = 230;
 
-  int board_width = 230;
+  int board_width = 220;
   int board_height = 230;
 
   const int corner_radius = 32;
