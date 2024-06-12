@@ -2070,17 +2070,17 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     QString message = "NDA";
     QFont font = p.font();
     font.setPointSize(25); // 폰트 크기를 설정합니다. 필요에 따라 조정하세요.
-    p.setFont((InterFont(25, QFont::Bold)));
+    p.setFont((InterFont(40, QFont::Bold)));
 
-    int x = (width() + (UI_BORDER_SIZE * 2)) / 2 - 60; // 텍스트의 x 좌표를 계산합니다.
+    int x = (width() + (UI_BORDER_SIZE * 2)) / 2 - 30; // 텍스트의 x 좌표를 계산합니다.
     int y = 40 - UI_BORDER_SIZE; // 텍스트의 y 좌표를 계산합니다.
 
-    QColor shadowColor(0, 0, 0, 128); // 회색(128, 128, 128)과 50% 투명도(128)
+    QColor shadowColor(0, 0, 0, 166); // 회색(128, 128, 128)과 50% 투명도(128)
     p.setPen(QPen(shadowColor));
     p.drawText(x + 2, y + 2, message); // 약간 이동된 위치에 음영 그리기
 
     // 실제 텍스트를 그립니다.
-    p.setPen(QPen(Qt::white)); // 텍스트 색상 설정
+    p.setPen(QPen(Qt::green)); // 텍스트 색상 설정
     p.drawText(x, y, message);
   }
 
@@ -2108,7 +2108,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
       path.addRoundedRect(QRectF(x_start, y_start+corner_radius, board_width, board_height-corner_radius), board_width/2, board_width/2);
     }
     else if(roadLimitSpeed > 0 && roadLimitSpeed < 200) {
-      //board_height = 500;
+      board_height = 300;
       path.addRoundedRect(QRectF(x_start, y_start, board_width, board_height), corner_radius, corner_radius);
     }
     else {
@@ -2184,7 +2184,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     }
   }
   else if(roadLimitSpeed > 0 && roadLimitSpeed < 200) {
-    QRectF board_rect = QRectF(x_start, y_start+max_speed_height, board_width, board_height-max_speed_height);
+    QRectF board_rect = QRectF(x_start, y_start, board_width, board_height-max_speed_height);
     int padding = 14;
     board_rect.adjust(padding, padding, -padding, -padding);
     p.setBrush(QBrush(Qt::white));
