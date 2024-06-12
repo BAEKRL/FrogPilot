@@ -2069,8 +2069,8 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     p.setOpacity(1.f);
     QString message = "NDA";
     QFont font = p.font();
-    font.setPointSize(75); // 폰트 크기를 설정합니다. 필요에 따라 조정하세요.
-    p.setFont((InterFont(75, QFont::Bold)));
+    font.setPointSize(25); // 폰트 크기를 설정합니다. 필요에 따라 조정하세요.
+    p.setFont((InterFont(25, QFont::Bold)));
 
     int x = (width() + (UI_BORDER_SIZE * 2)) / 2 - 60; // 텍스트의 x 좌표를 계산합니다.
     int y = 40 - UI_BORDER_SIZE; // 텍스트의 y 좌표를 계산합니다.
@@ -2088,10 +2088,10 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
   const int y_start = 230;
 
   int board_width = 220;
-  int board_height = 230;
+  int board_height = 220;
 
   const int corner_radius = 32;
-  int max_speed_height = 0;
+  int max_speed_height = 220;
 
   QColor bgColor = QColor(0, 0, 0, 128);
 
@@ -2102,7 +2102,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
 
     if(limit_speed > 0) {
       //board_width = limit_speed < 100 ? 230 : 230;
-      board_height = max_speed_height + board_width;
+      board_height = board_width;
 
       path.addRoundedRect(QRectF(x_start, y_start, board_width, board_height-board_width/2), corner_radius, corner_radius);
       path.addRoundedRect(QRectF(x_start, y_start+corner_radius, board_width, board_height-corner_radius), board_width/2, board_width/2);
@@ -2112,7 +2112,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
       path.addRoundedRect(QRectF(x_start, y_start, board_width, board_height), corner_radius, corner_radius);
     }
     else {
-      max_speed_height = 240;
+      max_speed_height = 220;
       board_height = max_speed_height;
       path.addRoundedRect(QRectF(x_start, y_start, board_width, board_height), corner_radius, corner_radius);
     }
@@ -2219,7 +2219,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     }
 
     {
-      p.setFont(InterFont(10, QFont::Bold));
+      p.setFont(InterFont(1, QFont::Bold));
 
       QRect text_rect = getRect(p, Qt::AlignCenter, str);
       QRect b_rect(board_rect.x(), board_rect.y(), board_rect.width(), board_rect.height()/2);
