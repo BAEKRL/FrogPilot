@@ -2047,7 +2047,7 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     limit_speed = sectionLimitSpeed;
     left_dist = sectionLeftDist;
   }
-
+/*
   if(activeNDA > 0) {
       p.setOpacity(1.f);
       if(isNda2) {
@@ -2064,6 +2064,24 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
         int y = 40 - UI_BORDER_SIZE;
         p.drawPixmap(x, y, w, h, activeNDA == 1 ? ic_nda : ic_hda);
       }
+  }*/
+  if(activeNDA > 0) {
+    p.setOpacity(1.f);
+    QString message = "NDA";
+    QFont font = p.font();
+    font.setPointSize(12); // 폰트 크기를 설정합니다. 필요에 따라 조정하세요.
+    p.setFont((InterFont(12, QFont::Bold)));
+
+    int x = (width() + (UI_BORDER_SIZE * 2)) / 2 - 60; // 텍스트의 x 좌표를 계산합니다.
+    int y = 40 - UI_BORDER_SIZE; // 텍스트의 y 좌표를 계산합니다.
+
+    QColor shadowColor(0, 0, 0, 128); // 회색(128, 128, 128)과 50% 투명도(128)
+    p.setPen(QPen(shadowColor));
+    p.drawText(x + 2, y + 2, message); // 약간 이동된 위치에 음영 그리기
+
+    // 실제 텍스트를 그립니다.
+    p.setPen(QPen(Qt::white)); // 텍스트 색상 설정
+    p.drawText(x, y, message);
   }
 
   const int x_start = 30;
