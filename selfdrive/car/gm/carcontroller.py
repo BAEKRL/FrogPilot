@@ -58,7 +58,7 @@ class CarController(CarControllerBase):
     self.accel_g = 0.0
 
   @staticmethod
-  def calc_pedal_command(accel: float, long_active: bool, car_velocity) -> float:
+  def calc_pedal_command(accel: float, long_active: bool) -> float:
     if not long_active: return 0.
     # Boltpilot pedal
     # if accel > 0:
@@ -166,7 +166,7 @@ class CarController(CarControllerBase):
             self.apply_gas = self.params.INACTIVE_REGEN
           if self.CP.carFingerprint in CC_ONLY_CAR:
             # gas interceptor only used for full long control on cars without ACC
-            interceptor_gas_cmd = self.calc_pedal_command(actuators.accel, CC.longActive, CS.out.vEgo)
+            interceptor_gas_cmd = self.calc_pedal_command(actuators.accel, CC.longActive)
 
         if self.CP.enableGasInterceptor and self.apply_gas > self.params.INACTIVE_REGEN and CS.out.cruiseState.standstill:
           # "Tap" the accelerator pedal to re-engage ACC
