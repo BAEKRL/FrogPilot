@@ -2072,8 +2072,8 @@ void AnnotatedCameraWidget::drawRoadLimitSpeed(QPainter &p) {
     font.setPointSize(25); // 폰트 크기를 설정합니다. 필요에 따라 조정하세요.
     p.setFont((InterFont(40, QFont::Bold)));
 
-    int x = (width() + (UI_BORDER_SIZE * 2)) / 2 - 30; // 텍스트의 x 좌표를 계산합니다.
-    int y = 40 - UI_BORDER_SIZE; // 텍스트의 y 좌표를 계산합니다.
+    int x = (width()) / 2 - 30; // 텍스트의 x 좌표를 계산합니다.
+    int y = 40; // 텍스트의 y 좌표를 계산합니다.
 
     QColor shadowColor(0, 0, 0, 166); // 회색(128, 128, 128)과 50% 투명도(128)
     p.setPen(QPen(shadowColor));
