@@ -264,8 +264,8 @@ class CarInterface(CarInterfaceBase):
         ret.flags |= GMFlags.PEDAL_LONG.value
         ret.safetyConfigs[0].safetyParam |= Panda.FLAG_GM_PEDAL_LONG
         # Note: Low speed, stop and go not tested. Should be fairly smooth on highway
-        ret.longitudinalTuning.kpBP = [5., 35.]
-        ret.longitudinalTuning.kpV = [0.20, 0.2900]
+        ret.longitudinalTuning.kpBP = [0., 3., 6., 35.]
+        ret.longitudinalTuning.kpV = [0.10, 0.16, 0.20, 0.2900]
         ret.longitudinalTuning.kiBP = [0., 35.0]
         ret.longitudinalTuning.kiV = [0.1, 0.07]
         ret.longitudinalTuning.kf = 0.20
