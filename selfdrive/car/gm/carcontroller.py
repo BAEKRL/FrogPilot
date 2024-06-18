@@ -126,6 +126,9 @@ class CarController(CarControllerBase):
       # Gas/regen, brakes, and UI commands - all at 25Hz
       if self.frame % 4 == 0:
         stopping = actuators.longControlState == LongCtrlState.stopping
+        if LongCtrlState.stopping:
+          can_sends.append(gmcan.create_friction_brake_command(self.packer_ch, CanBus.CHASSIS, self.apply_brake, idx, CC.enabled, near_stop, at_full_stop, self.CP))
+
 
         # Pitch compensated acceleration;
         # TODO: include future pitch (sm['modelDataV2'].orientation.y) to account for long actuator delay
